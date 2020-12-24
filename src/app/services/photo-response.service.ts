@@ -8,4 +8,5 @@ export class PhotoResponseService {
   constructor() { }
 
   response = [];
+  status = 0;
 }

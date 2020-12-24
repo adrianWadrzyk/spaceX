@@ -1,0 +1,11 @@
+.search_bar { 
+    height: 30px;
+    padding-left: 8px;
+    border: none;
+    border-bottom: 1px solid black;
+    text-align: center;
+
+    &::placeholder { 
+        color: black;
+    }
+}

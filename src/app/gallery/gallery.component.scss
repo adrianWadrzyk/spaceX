@@ -1,0 +1,13 @@
+.conteiner { 
+    width: 60vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: auto;
+    justify-items: center;
+    grid-gap: 20px;
+}
+
+img { 
+    width: 200px;
+    height: 200px;
+}

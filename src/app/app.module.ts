@@ -8,12 +8,16 @@ import { HttpService } from './http.service';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { FormsModule } from '@angular/forms';
 import { LogoComponent } from './logo/logo.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchBarComponent,
-    LogoComponent
+    LogoComponent,
+    GalleryComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
