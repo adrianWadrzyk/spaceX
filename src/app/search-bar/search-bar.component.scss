@@ -2,10 +2,13 @@
     height: 30px;
     padding-left: 8px;
     border: none;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid white;
     text-align: center;
+    background: none;
+    font-size: 1.2em;
+    color:white;
 
     &::placeholder { 
-        color: black;
+        color: white;
     }
 }

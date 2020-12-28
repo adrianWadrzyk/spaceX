@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { ThrowStmt } from '@angular/compiler';
+import { Component, DoCheck, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { PhotoResponseService } from '../services/photo-response.service';
 
@@ -7,17 +8,31 @@ import { PhotoResponseService } from '../services/photo-response.service';
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.scss']
 })
-export class GalleryComponent implements OnInit {
-
-  constructor(private searchServie: PhotoResponseService, 
+export class GalleryComponent implements OnInit, DoCheck {
+  constructor(private searchService: PhotoResponseService, 
               private router: Router) { }
 
-  response = this.searchServie.response;
+  statusModal:boolean = false;
+  imgDetail;
+  response = [];  
 
   ngOnInit(): void {
-    console.log(this.searchServie.response);
+  }
+
+  ngDoCheck(): void {
+    if(this.response != this.searchService.response)
+      this.response = this.searchService.response;
 
     if(this.response.length < 1) 
-        this.router.navigateByUrl("");
+      this.router.navigateByUrl("");
   }
+
+    showModal(index): void { 
+      this.statusModal = true; 
+      this.imgDetail = this.response[index];
+    }
+
+    closeModal($event): void { 
+      this.statusModal = $event;
+    }
 }

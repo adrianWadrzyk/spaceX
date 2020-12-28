@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { HttpService } from '../http.service';
 import { PhotoResponseService } from '../services/photo-response.service';
 
 @Component({
@@ -10,9 +8,7 @@ import { PhotoResponseService } from '../services/photo-response.service';
 })
 export class SearchBarComponent implements OnInit {
 
-  constructor(private HttpService: HttpService, 
-              private searchService: PhotoResponseService, 
-              private router: Router ) { }
+  constructor(private searchService: PhotoResponseService ) { }
 
   ngOnInit(): void {
   }
@@ -20,10 +16,7 @@ export class SearchBarComponent implements OnInit {
   param:string = '';
 
   getImage() { 
-   this.HttpService.getImage(this.param).subscribe(image => {
-   this.searchService.response = image['collection'].items
-   this.searchService.status = 1;
-   this.router.navigateByUrl("gallery");
-   })
-  }
+    this.searchService.getImage(this.param);
+   }
 }
+

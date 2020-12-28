@@ -1,3 +1,4 @@
-<div class="conteiner">
-    <img *ngFor="let item of response" src="{{item.links[0].href}}">
+<div class="conteiner" >
+    <img *ngFor="let item of response; let i = index" src="{{item.links[0].href}}" (click)="showModal(i)">
+    <app-modal *ngIf="statusModal == true"  [imgDetail]="imgDetail" (close)="closeModal($event)"></app-modal>
 </div>
